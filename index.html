@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="64x64" href="C:\Users\jenay\Documents\js-fcb\images\tasklogo.png"/>
+  <title>TaskFlow — Sign In</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="auth-page">
+
+  <!-- ─── Left: Branding ─────────────────────────────────────────── -->
+  <aside class="auth-brand">
+    <div class="auth-brand-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+      </div>
+      <span class="logo-text">Task<span>Flow</span></span>
+    </div>
+
+    <p class="auth-brand-tagline">Organize your work.<br/>Accomplish more.</p>
+    <p class="auth-brand-sub">A lightweight multi-user task manager built for focused productivity.</p>
+
+    <ul class="auth-features">
+      <li>Personal task dashboard per user</li>
+      <li>Priority levels with color coding</li>
+      <li>Filter, search &amp; sort tasks</li>
+      <li>Drag-and-drop reordering</li>
+      <li>Dark &amp; light mode support</li>
+      <li>Export &amp; import your data</li>
+    </ul>
+  </aside>
+
+  <!-- ─── Right: Auth Forms ──────────────────────────────────────── -->
+  <main class="auth-forms">
+    <div class="auth-card">
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Sign In</button>
+        <button class="auth-tab" data-tab="signup">Create Account</button>
+      </div>
+
+      <!-- ─── Login Panel ──────────────────────────── -->
+      <div class="auth-panel active" id="panel-login">
+        <h2>Welcome back</h2>
+        <p>Sign in to access your tasks.</p>
+
+        <div id="login-error" class="error-msg" role="alert"></div>
+
+        <form id="login-form" novalidate>
+          <div class="field-group">
+            <label for="login-username">Username</label>
+            <div class="input-wrap">
+              <input
+                type="text"
+                id="login-username"
+                autocomplete="username"
+                placeholder="Enter your username"
+                spellcheck="false"
+              />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="login-password">Password</label>
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="login-password"
+                autocomplete="current-password"
+                placeholder="Enter your password"
+              />
+              <button
+                type="button"
+                class="toggle-password"
+                data-target="login-password"
+                aria-label="Toggle password visibility"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="margin-top:0.5rem">
+            Sign In
+          </button>
+        </form>
+
+        <p style="text-align:center;font-size:0.825rem;color:var(--text-muted);margin-top:1rem">
+          No account?
+          <button
+            onclick="document.querySelector('[data-tab=signup]').click()"
+            style="background:none;color:var(--accent-light);font-weight:600;font-size:inherit"
+          >Create one</button>
+        </p>
+      </div>
+
+      <!-- ─── Sign Up Panel ─────────────────────────── -->
+      <div class="auth-panel" id="panel-signup">
+        <h2>Create account</h2>
+        <p>Start managing your tasks today — it's free.</p>
+
+        <div id="signup-error" class="error-msg" role="alert"></div>
+
+        <form id="signup-form" novalidate>
+          <div class="field-group">
+            <label for="signup-username">Username</label>
+            <div class="input-wrap">
+              <input
+                type="text"
+                id="signup-username"
+                autocomplete="username"
+                placeholder="Choose a username (3–20 chars)"
+                spellcheck="false"
+              />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="signup-password">Password</label>
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="signup-password"
+                autocomplete="new-password"
+                placeholder="Min. 6 characters"
+              />
+              <button
+                type="button"
+                class="toggle-password"
+                data-target="signup-password"
+                aria-label="Toggle password visibility"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="signup-confirm">Confirm Password</label>
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="signup-confirm"
+                autocomplete="new-password"
+                placeholder="Repeat your password"
+              />
+              <button
+                type="button"
+                class="toggle-password"
+                data-target="signup-confirm"
+                aria-label="Toggle confirm password visibility"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="margin-top:0.5rem">
+            Create Account
+          </button>
+        </form>
+
+        <p style="text-align:center;font-size:0.825rem;color:var(--text-muted);margin-top:1rem">
+          Already have an account?
+          <button
+            onclick="document.querySelector('[data-tab=login]').click()"
+            style="background:none;color:var(--accent-light);font-weight:600;font-size:inherit"
+          >Sign in</button>
+        </p>
+      </div>
+
+    </div><!-- /.auth-card -->
+  </main>
+
+  <!-- Scripts -->
+  <script src="storage.js"></script>
+  <script src="utils.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', Auth.init);
+  </script>
+</body>
+</html>
